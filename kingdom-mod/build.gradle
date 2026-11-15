@@ -1,0 +1,40 @@
+// Сборка мода для Minecraft 1.7.10 + Forge 10.13.4.1614
+// через RetroFuturaGradle — современную замену ForgeGradle 1.2.
+plugins {
+    id 'java'
+    id 'com.gtnewhorizons.retrofuturagradle' version '1.4.1'
+}
+
+group = 'kingdom'
+version = '1.0.0'
+base { archivesName = 'kingdom-1.7.10' }
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+        vendor = JvmVendorSpec.AZUL
+    }
+}
+
+minecraft {
+    mcVersion = '1.7.10'
+    username = 'Player'
+}
+
+repositories {
+    maven {
+        name = 'GTNH Maven'
+        url = 'https://nexus.gtnewhorizons.com/repository/public/'
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('mcmod.info') {
+        expand 'version': project.version, 'mcversion': '1.7.10'
+    }
+}

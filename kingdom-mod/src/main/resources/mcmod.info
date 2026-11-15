@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "kingdom",
+    "name": "Тридесятое королевство",
+    "description": "Карточная игра о правлении королевством прямо в Minecraft. Клавиша K или Королевский указ (бумага + золотой слиток) открывают игру.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": [],
+    "credits": "",
+    "url": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
